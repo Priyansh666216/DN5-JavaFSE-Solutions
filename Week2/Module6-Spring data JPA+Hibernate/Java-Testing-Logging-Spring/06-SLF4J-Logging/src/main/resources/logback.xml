@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <!--
+        Appender: defines WHERE logs go and HOW they look.
+        CONSOLE sends output to System.out (your terminal).
+    -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!--
+                Pattern breakdown:
+                %d{HH:mm:ss}  — timestamp
+                [%thread]     — thread name
+                %-5level      — log level (padded to 5 chars: ERROR, WARN, INFO, DEBUG, TRACE)
+                %logger{36}   — class name (max 36 chars)
+                %msg          — the actual log message
+                %n            — newline
+            -->
+            <pattern>%d{HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!--
+        Root logger: catches all log statements from every class.
+        level="TRACE" means ALL levels are shown (TRACE, DEBUG, INFO, WARN, ERROR).
+        Change to "WARN" to only show WARN and ERROR.
+    -->
+    <root level="TRACE">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+
+</configuration>

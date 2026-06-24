@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+        Bean Definition: BookRepository
+        Spring creates one instance of this class and manages its lifecycle.
+        id="bookRepository" is the name used to retrieve it from the context.
+    -->
+    <bean id="bookRepository" class="com.library.repository.BookRepository"/>
+
+    <!--
+        Bean Definition: BookService
+        The 'bookRepository' bean is injected into BookService
+        via constructor injection using the <constructor-arg> tag.
+    -->
+    <bean id="bookService" class="com.library.service.BookService">
+        <constructor-arg ref="bookRepository"/>
+    </bean>
+
+</beans>
