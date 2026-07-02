@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+        Country bean — India
+        Spring will call the no-arg constructor first,
+        then call setCode("IN") and setName("India") via setter injection.
+        The <property> tag maps to the setter method by convention:
+            name="code" → setCode()
+            name="name" → setName()
+    -->
+    <bean id="country" class="com.cognizant.springlearn.Country">
+        <property name="code" value="IN" />
+        <property name="name" value="India" />
+    </bean>
+
+    <!-- Additional country beans for reference (airlines dropdown) -->
+
+    <bean id="countryUS" class="com.cognizant.springlearn.Country">
+        <property name="code" value="US" />
+        <property name="name" value="United States" />
+    </bean>
+
+    <bean id="countryDE" class="com.cognizant.springlearn.Country">
+        <property name="code" value="DE" />
+        <property name="name" value="Germany" />
+    </bean>
+
+    <bean id="countryJP" class="com.cognizant.springlearn.Country">
+        <property name="code" value="JP" />
+        <property name="name" value="Japan" />
+    </bean>
+
+</beans>
